@@ -1,0 +1,530 @@
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.section-title p{
+	padding:0 50px;
+}
+.header .address {
+	text-align: center;
+}
+.header .social {
+	text-align: center;
+}
+.header .nav .dropdown{
+	width:150px;
+}
+.header .nav li a {
+	margin: 0 8px;
+	padding: 12px 0;
+	font-size: 13px;
+}
+.header .cart-search-bar{
+	display:none;
+}
+.header .nav li {
+	margin-right: 14px;
+}
+.sufia-slider .single-slider,
+.sufia-slider .welcome-text{
+	height:450px;
+}
+.sufia-slider .welcome-text h1{
+	font-size:40px;
+}	
+.sufia-slider .welcome-text h1 span{
+	margin-bottom:10px;
+}
+.sufia-slider .welcome-text .button,
+.sufia-slider .welcome-text .b-arrow{
+	margin-top:25px;
+}
+.sufia-slider .welcome-text.right,
+.sufia-slider .welcome-text.center,
+.sufia-slider .welcome-text{
+	text-align:center;
+}
+.sufia-slider .welcome-text .b-arrow,
+.sufia-slider .welcome-text.right .b-arrow{
+	background-position:center;
+}
+.testimonial .testimonial-content{
+	padding:0 60px;
+}
+.project .project-nav ul li{
+	margin-right:10px;
+}
+.team .hover-team{
+	padding:20px 5px;
+}
+.team .hover-team p{
+	font-size:13px;
+}
+.team .member-name h4{
+	font-size:16px;
+}
+.newslatter.section{
+	padding:80px 0;
+}
+.newslatter .news-title h2{
+	font-size:25px;
+}
+.newslatter .news-title h2{
+	margin-bottom:10px;
+}
+.newslatter input[type="text"]{
+	width:73%;
+	margin-right:10px;
+}
+.newslatter input[type="submit"]{
+	width:22%;
+	font-size:14px;
+}
+.newsblog .news-content{
+	padding:15px;
+}
+.newsblog .news-content h4,
+.newsblog .news-content .date{
+	margin-bottom:10px;
+}
+.newsblog .news-content .btn{
+	margin-top:10px;
+}
+.sufia-personal .personal-text h2{
+	font-size:50px;
+	margin-bottom:25px;
+}
+.sufia-personal .personal-text .info{
+	margin-bottom:25px;
+}
+.about-me .my-image{
+	text-align:center;
+}
+.about-me .my-image img{
+	display:inline-block;
+}
+.about-me .social {
+	text-align: center;
+}
+.about-me .my-image, .about-text {
+	text-align: center;
+}
+.supia-app-main .app-text{
+	margin-top:25px;
+}
+.supia-app-main .app-text .button .btn{
+	padding:12px 30px;
+	margin-right:10px;
+	font-size:14px;
+}
+.supia-app-main{
+	height:480px;
+}
+.app-features .app-single-features{
+	margin-top:20px;
+}
+.app-features .app-slide img {
+	width: 100%;
+	height: 600px;
+}
+.app-features .app-single-features i,.app-features .app-single-features h4{
+	margin-bottom:5px;
+}
+.app-screnshoot button{
+	color:#fff;
+	border:0px solid;
+}
+.app-screnshoot button.PrevArrow{
+	left:0;
+}
+.app-screnshoot button.NextArrow{
+	right:0;
+}
+.sufia-video-area .video-text h1{
+	font-size:40px;
+}
+.project.single .single-project{
+	margin-bottom:0px;
+}
+.sufia-video-area .video-text{
+	padding:0 20px;
+}
+.footer .social-icon li{
+	width:100%;
+}
+}
+   
+@media only screen and (max-width: 767px) {
+.section-title h2 {
+	font-size: 30px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+.section-title p{
+	padding:0 20px;
+}
+.cart-search-bar{
+	display:none;
+}
+.navbar-toggle .icon-bar {
+	position: relative;
+	-webkit-transition: all 500ms ease-in-out;
+	transition: all 500ms ease-in-out;
+	width: 28px;
+	background: #fff;
+}
+.header .navbar {
+	float: left;
+	width: 100%;
+}
+.navbar-nav {
+	margin: 7.5px -15px;
+	float: none;
+}
+.navbar-nav {
+	margin: 7.5px -15px;
+	float: none;
+	background: #fff;
+}
+.header .header-inner{
+	padding:15px 0;
+}
+.header  .mobile-menu{
+	display:block;
+}
+.header .slicknav_btn {
+	background: #333;
+	margin-right: 0px;
+	margin-top: -22px;
+}
+.header .slicknav_menu {
+	padding: 0px;
+	background: transparent;
+}
+.header .slicknav_nav {
+	background: #333;
+}
+.header .slicknav_nav a{
+	color:#fff;
+}
+.header .nav li a:before{
+	display:none;
+}
+.header .header-inner .dropdown{
+	padding: 0 10px;
+	transform: translateY(0px);
+}
+.header-inner.sticky{
+	max-height:100%;
+}
+.navbar{
+	min-height:0px;
+}
+.header .header-inner .dropdown {
+	position: relative;
+	top: 0px;
+	opacity: 1;
+	visibility: visible;
+	background: transparent;
+	border-left: 1px solid #42AAD9;
+}
+.header .nav li .dropdown li a {
+	color: #444;
+}
+.navbar-toggle.active .icon-bar:nth-of-type(2) {
+    background-color: transparent !important;
+}
+.navbar-toggle.active .icon-bar:nth-of-type(3) {
+	top: 0;
+	transform: rotate(-45deg);
+	margin: 0;
+}
+.navbar-toggle.active span:nth-child(4) {
+    margin-top: -2.5px;
+    transform: rotateZ(45deg);
+}
+.header .address {
+	text-align: center;
+}
+.header .social {
+	text-align: center;
+}
+.breadcrumbs h2{
+	font-size:22px;
+	float:none;
+}
+.breadcrumbs ul {
+	float: none;
+	margin: 0;
+	padding-top: 25px;
+}
+.testimonial .testimonial-content h2 {
+	color: #fff;
+	font-size: 25px;
+	margin-bottom: 30px;
+}
+.sufia-slider .single-slider,
+.sufia-slider .welcome-text{
+	height:350px;
+}
+.sufia-slider .welcome-text h1{
+	font-size:30px;
+}	
+.sufia-slider .welcome-text h1 span{
+	margin-bottom:10px;
+}
+.sufia-slider .welcome-text .button,
+.sufia-slider .welcome-text .b-arrow{
+	margin-top:15px;
+	background-position:center;
+}
+.sufia-slider .welcome-text.right .b-arrow{
+	background-position:center;
+}
+.sufia-slider .welcome-text.right,
+.sufia-slider .welcome-text.center,
+.sufia-slider .welcome-text{
+	text-align:center;
+}
+.sufia-slider .welcome-text .button{
+	text-align:center;
+}
+.sufia-slider .welcome-text .button .btn {
+	height: 40px;
+	line-height: 40px;
+	margin: 0 0 15px;
+}
+.testimonial .testimonial-content{
+	padding:0 15px;
+}
+.team .hover-team{
+	padding:30% 10%;
+}
+.newslatter.section {
+	padding: 80px 0;
+}
+.news-title {
+	text-align: center;
+}
+.newslatter .news-title h2{
+	font-size:25px;
+}
+.newslatter input[type="text"]{
+	width:100%;
+	display:block;
+}
+.newslatter .news-form {
+	margin-top: 20px;
+	text-align: center;
+}
+.newslatter input[type="text"]{
+	margin-bottom:20px;
+}
+.project .project-nav ul li{
+	font-size:15px;
+	padding:5px;
+}
+.project.archive .project-nav {
+	text-align: center;
+}
+.project.single .single-project{
+	margin-bottom:0px;
+}
+.footer .footer-logo {
+	text-align: center;
+	display: inline-block;
+}
+.footer .social a {
+	background-color: #2a2a2f;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+}
+.sufia-personal .personal-text{
+	padding:15px;
+}
+.sufia-personal .personal-text h2 {
+	font-size: 40px;
+	margin-bottom:25px;
+}
+.sufia-personal .personal-text .info {
+	margin-bottom: 25px;
+}
+.sufia-personal .personal-text .info li {
+	font-size: 22px;
+	margin-right: 12px;
+}
+.sufia-personal .personal-text .info li::before {
+	left: -9px;
+}
+.sufia-personal .personal-text .button .btn {
+	padding: 12px 30px;
+	margin-right: 9px;
+	font-size: 13px;
+}
+.about-me .my-image{
+	text-align:center;
+}
+.about-me .my-image img{
+	display:inline-block;
+}
+.about-me .social {
+	text-align: center;
+}
+.about-me .my-image, .about-text {
+	text-align: center;
+}
+.supia-app-main {
+	height: auto;
+	padding: 50px 0;
+}
+.supia-app-main .app-text{
+	margin-top:30px;
+}
+.supia-app-main .app-text h1 {
+	font-size: 25px;
+}
+.supia-app-main .app-text h1 .typed-cursor{
+	height:30px;
+}
+.supia-app-main .app-text .button{
+	text-align:left;
+}
+.app-slide .single-slide{
+	padding:0 30px;
+	margin-top:45px;
+}
+.app-screnshoot button{
+	color:#fff;
+	border:0px solid;
+}
+.app-features button.PrevArrow{
+	left:0;
+}
+.app-features button.NextArrow{
+	right:0;
+}
+.app-screnshoot button.NextArrow{
+	right:0;
+}
+.app-screnshoot button.PrevArrow{
+	left:0;
+}
+.app-available h1{
+	display:block;
+	text-align:center;
+}
+.app-available p{
+	text-align:center;
+	padding:0 50px;
+}
+.app-available .button{
+	text-align:center;
+}
+.app-available img{
+	display:inline-block;
+}
+.sufia-video-area .video-text{
+	padding:0 20px;
+}
+.sufia-video-area .video-text h1{
+	font-size:25px;
+}
+.sufia-video-area .video-text .btn{
+	margin:0 10px 0 10px;
+}
+.newsblog.single .pagination {
+	text-align:center;
+	display:inline-block;
+}
+.newsblog.single .pagination li a{
+	padding:5px 15px;
+}
+.newsblog .single-comments .head {
+	width: auto;
+	float: none;
+}
+.newsblog .single-comments .body {
+	float: none;
+	width: 100%;
+}
+.footer .contact ul li{
+	padding-left:0px;
+}
+.footer .contact ul li i{
+	position:relative;
+}
+.footer .social-icon li{
+	float:none;
+}
+}
+    
+@media only screen and (max-width: 320px) {
+.sufia-slider .welcome-text h1{
+	font-size:25px;
+}
+.sufia-slider button{
+	width:30px;
+	height:30px;
+	line-height:30px;
+}
+.brand .single-brand{
+	text-align:center;
+}
+.brand .single-brand img{
+	display:inline-block;
+}
+.sufia-personal .personal-text h2{
+	font-size:25px;
+}
+.sufia-personal .personal-text .info li {
+	font-size: 16px;
+}
+.sufia-personal .personal-text .btn {
+	margin-bottom: 15px;
+	margin-right: 0px;
+}
+.sufia-personal .personal-text .btn:last-child{
+	margin-bottom:0px;
+}
+.supia-app-main .app-text{
+	text-align:center;
+}
+.supia-app-main .app-text .button{
+	text-align:center;
+}
+.supia-app-main .app-text .button .btn{
+	display:inline-block;
+	margin-bottom:20px;
+	margin-right:0px;
+}
+.supia-app-main .app-text .button .btn:last-child{
+	margin-bottom:0px;
+}
+.app-available p{
+	padding:0px;
+}
+.app-available .button img{
+	margin-bottom:20px;
+	margin-right:0px;
+}
+.app-available .button a:last-child img{
+	margin-bottom:0px;
+}
+.project.single .project-slide .project-hover {
+	text-align: center;
+	padding: 0 39px;
+}
+.sufia-video-area .video-text .btn{
+	margin-top:10px;;
+}
+.newsblog.single .news-head iframe {
+	height: 240px;
+}
+.newsblog .news-share ul{
+	text-align:center;
+}
+.newsblog .news-share ul li.share{
+	display:block;
+}
+.newsblog .call-inner h4{
+	font-size:20px;
+}
+}

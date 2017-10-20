@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allen.dao.CompanyTransactionMapper">
+  <resultMap id="BaseResultMap" type="com.allen.pojo.CompanyTransaction">
+    <id column="trans_id" jdbcType="INTEGER" property="transId" />
+    <result column="trans_type" jdbcType="INTEGER" property="transType" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="license_image" jdbcType="VARCHAR" property="licenseImage" />
+    <result column="debt" jdbcType="INTEGER" property="debt" />
+    <result column="finance_status" jdbcType="INTEGER" property="financeStatus" />
+    <result column="permit" jdbcType="INTEGER" property="permit" />
+    <result column="permit_image" jdbcType="VARCHAR" property="permitImage" />
+    <result column="industry" jdbcType="VARCHAR" property="industry" />
+    <result column="bargain" jdbcType="INTEGER" property="bargain" />
+    <result column="reg_duration" jdbcType="INTEGER" property="regDuration" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="valid_code" jdbcType="VARCHAR" property="validCode" />
+    <result column="valid_date_end" jdbcType="DATE" property="validDateEnd" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="accept_user_id" jdbcType="INTEGER" property="acceptUserId" />
+    <result column="accept_user_name" jdbcType="VARCHAR" property="acceptUserName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="accept_time" jdbcType="TIMESTAMP" property="acceptTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.allen.pojo.vo.CompanyTransactionVo">
+    <result column="industry_require" jdbcType="LONGVARCHAR" property="industryRequire" />
+    <result column="address_require" jdbcType="LONGVARCHAR" property="addressRequire" />
+    <result column="reg_capital_require" jdbcType="LONGVARCHAR" property="regCapitalRequire" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    trans_id, trans_type, city, license_image, debt, finance_status, permit, permit_image, 
+    industry, bargain, reg_duration, price, valid_code, valid_date_end, status, accept_user_id, 
+    accept_user_name,create_time,accept_time
+  </sql>
+  <sql id="Blob_Column_List">
+    industry_require, address_require, reg_capital_require
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.allen.pojo.CompanyTransactionExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_company_transaction
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.allen.pojo.CompanyTransactionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_company_transaction
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_company_transaction
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_company_transaction
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.allen.pojo.CompanyTransactionExample">
+    delete from t_company_transaction
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.allen.pojo.CompanyTransactionWithBLOBs">
+    insert into t_company_transaction (trans_id, trans_type, city, 
+      license_image, debt, finance_status, 
+      permit, permit_image, industry, 
+      bargain, reg_duration, price, 
+      valid_code, valid_date_end, status, 
+      accept_user_id, accept_user_name, create_time,accept_time,industry_require, 
+      address_require, reg_capital_require
+      )
+    values (#{transId,jdbcType=INTEGER}, #{transType,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, 
+      #{licenseImage,jdbcType=VARCHAR}, #{debt,jdbcType=INTEGER}, #{financeStatus,jdbcType=INTEGER}, 
+      #{permit,jdbcType=INTEGER}, #{permitImage,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, 
+      #{bargain,jdbcType=INTEGER}, #{regDuration,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, 
+      #{validCode,jdbcType=VARCHAR}, #{validDateEnd,jdbcType=DATE}, #{status,jdbcType=INTEGER}, 
+      #{acceptUserId,jdbcType=INTEGER}, #{acceptUserName,jdbcType=VARCHAR}, NOW(),#{acceptTime,jdbcType=TIMESTAMP},#{industryRequire,jdbcType=LONGVARCHAR}, 
+      #{addressRequire,jdbcType=LONGVARCHAR}, #{regCapitalRequire,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.allen.pojo.CompanyTransactionWithBLOBs">
+    insert into t_company_transaction
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        trans_id,
+      </if>
+      <if test="transType != null">
+        trans_type,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="licenseImage != null">
+        license_image,
+      </if>
+      <if test="debt != null">
+        debt,
+      </if>
+      <if test="financeStatus != null">
+        finance_status,
+      </if>
+      <if test="permit != null">
+        permit,
+      </if>
+      <if test="permitImage != null">
+        permit_image,
+      </if>
+      <if test="industry != null">
+        industry,
+      </if>
+      <if test="bargain != null">
+        bargain,
+      </if>
+      <if test="regDuration != null">
+        reg_duration,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="validCode != null">
+        valid_code,
+      </if>
+      <if test="validDateEnd != null">
+        valid_date_end,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="acceptUserId != null">
+        accept_user_id,
+      </if>
+      <if test="acceptUserName != null">
+        accept_user_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="acceptTime != null">
+        accept_time,
+      </if>
+      <if test="industryRequire != null">
+        industry_require,
+      </if>
+      <if test="addressRequire != null">
+        address_require,
+      </if>
+      <if test="regCapitalRequire != null">
+        reg_capital_require,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="transId != null">
+        #{transId,jdbcType=INTEGER},
+      </if>
+      <if test="transType != null">
+        #{transType,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImage != null">
+        #{licenseImage,jdbcType=VARCHAR},
+      </if>
+      <if test="debt != null">
+        #{debt,jdbcType=INTEGER},
+      </if>
+      <if test="financeStatus != null">
+        #{financeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="permit != null">
+        #{permit,jdbcType=INTEGER},
+      </if>
+      <if test="permitImage != null">
+        #{permitImage,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="bargain != null">
+        #{bargain,jdbcType=INTEGER},
+      </if>
+      <if test="regDuration != null">
+        #{regDuration,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="validCode != null">
+        #{validCode,jdbcType=VARCHAR},
+      </if>
+      <if test="validDateEnd != null">
+        #{validDateEnd,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="acceptUserId != null">
+        #{acceptUserId,jdbcType=INTEGER},
+      </if>
+      <if test="acceptUserName != null">
+        #{acceptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null">
+        #{acceptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="industryRequire != null">
+        #{industryRequire,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="addressRequire != null">
+        #{addressRequire,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="regCapitalRequire != null">
+        #{regCapitalRequire,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.allen.pojo.CompanyTransactionExample" resultType="java.lang.Integer">
+    select count(*) from t_company_transaction
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_company_transaction
+    <set>
+      <if test="record.transId != null">
+        trans_id = #{record.transId,jdbcType=INTEGER},
+      </if>
+      <if test="record.transType != null">
+        trans_type = #{record.transType,jdbcType=INTEGER},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseImage != null">
+        license_image = #{record.licenseImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.debt != null">
+        debt = #{record.debt,jdbcType=INTEGER},
+      </if>
+      <if test="record.financeStatus != null">
+        finance_status = #{record.financeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.permit != null">
+        permit = #{record.permit,jdbcType=INTEGER},
+      </if>
+      <if test="record.permitImage != null">
+        permit_image = #{record.permitImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industry != null">
+        industry = #{record.industry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bargain != null">
+        bargain = #{record.bargain,jdbcType=INTEGER},
+      </if>
+      <if test="record.regDuration != null">
+        reg_duration = #{record.regDuration,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DOUBLE},
+      </if>
+      <if test="record.validCode != null">
+        valid_code = #{record.validCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validDateEnd != null">
+        valid_date_end = #{record.validDateEnd,jdbcType=DATE},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.acceptUserId != null">
+        accept_user_id = #{record.acceptUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.acceptUserName != null">
+        accept_user_name = #{record.acceptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acceptTime != null">
+        accept_time = #{record.acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryRequire != null">
+        industry_require = #{record.industryRequire,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.addressRequire != null">
+        address_require = #{record.addressRequire,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.regCapitalRequire != null">
+        reg_capital_require = #{record.regCapitalRequire,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_company_transaction
+    set trans_id = #{record.transId,jdbcType=INTEGER},
+    trans_type = #{record.transType,jdbcType=INTEGER},
+    city = #{record.city,jdbcType=VARCHAR},
+    license_image = #{record.licenseImage,jdbcType=VARCHAR},
+    debt = #{record.debt,jdbcType=INTEGER},
+    finance_status = #{record.financeStatus,jdbcType=INTEGER},
+    permit = #{record.permit,jdbcType=INTEGER},
+    permit_image = #{record.permitImage,jdbcType=VARCHAR},
+    industry = #{record.industry,jdbcType=VARCHAR},
+    bargain = #{record.bargain,jdbcType=INTEGER},
+    reg_duration = #{record.regDuration,jdbcType=INTEGER},
+    price = #{record.price,jdbcType=DOUBLE},
+    valid_code = #{record.validCode,jdbcType=VARCHAR},
+    valid_date_end = #{record.validDateEnd,jdbcType=DATE},
+    status = #{record.status,jdbcType=INTEGER},
+    accept_user_id = #{record.acceptUserId,jdbcType=INTEGER},
+    accept_user_name = #{record.acceptUserName,jdbcType=VARCHAR},
+    accept_time = #{record.acceptTime,jdbcType=TIMESTAMP},
+    industry_require = #{record.industryRequire,jdbcType=LONGVARCHAR},
+    address_require = #{record.addressRequire,jdbcType=LONGVARCHAR},
+    reg_capital_require = #{record.regCapitalRequire,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_company_transaction
+    set trans_id = #{record.transId,jdbcType=INTEGER},
+    trans_type = #{record.transType,jdbcType=INTEGER},
+    city = #{record.city,jdbcType=VARCHAR},
+    license_image = #{record.licenseImage,jdbcType=VARCHAR},
+    debt = #{record.debt,jdbcType=INTEGER},
+    finance_status = #{record.financeStatus,jdbcType=INTEGER},
+    permit = #{record.permit,jdbcType=INTEGER},
+    permit_image = #{record.permitImage,jdbcType=VARCHAR},
+    industry = #{record.industry,jdbcType=VARCHAR},
+    bargain = #{record.bargain,jdbcType=INTEGER},
+    reg_duration = #{record.regDuration,jdbcType=INTEGER},
+    price = #{record.price,jdbcType=DOUBLE},
+    valid_code = #{record.validCode,jdbcType=VARCHAR},
+    valid_date_end = #{record.validDateEnd,jdbcType=DATE},
+    status = #{record.status,jdbcType=INTEGER},
+    accept_user_id = #{record.acceptUserId,jdbcType=INTEGER},
+    accept_user_name = #{record.acceptUserName,jdbcType=VARCHAR},
+    accept_time = #{record.acceptTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.allen.pojo.CompanyTransactionWithBLOBs">
+    update t_company_transaction
+    <set>
+      <if test="transType != null">
+        trans_type = #{transType,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImage != null">
+        license_image = #{licenseImage,jdbcType=VARCHAR},
+      </if>
+      <if test="debt != null">
+        debt = #{debt,jdbcType=INTEGER},
+      </if>
+      <if test="financeStatus != null">
+        finance_status = #{financeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="permit != null">
+        permit = #{permit,jdbcType=INTEGER},
+      </if>
+      <if test="permitImage != null">
+        permit_image = #{permitImage,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        industry = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="bargain != null">
+        bargain = #{bargain,jdbcType=INTEGER},
+      </if>
+      <if test="regDuration != null">
+        reg_duration = #{regDuration,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="validCode != null">
+        valid_code = #{validCode,jdbcType=VARCHAR},
+      </if>
+      <if test="validDateEnd != null">
+        valid_date_end = #{validDateEnd,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="acceptUserId != null">
+        accept_user_id = #{acceptUserId,jdbcType=INTEGER},
+      </if>
+      <if test="acceptUserName != null">
+        accept_user_name = #{acceptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null">
+        accept_time = #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="industryRequire != null">
+        industry_require = #{industryRequire,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="addressRequire != null">
+        address_require = #{addressRequire,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="regCapitalRequire != null">
+        reg_capital_require = #{regCapitalRequire,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.allen.pojo.CompanyTransactionWithBLOBs">
+    update t_company_transaction
+    set trans_type = #{transType,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR},
+      license_image = #{licenseImage,jdbcType=VARCHAR},
+      debt = #{debt,jdbcType=INTEGER},
+      finance_status = #{financeStatus,jdbcType=INTEGER},
+      permit = #{permit,jdbcType=INTEGER},
+      permit_image = #{permitImage,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=VARCHAR},
+      bargain = #{bargain,jdbcType=INTEGER},
+      reg_duration = #{regDuration,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL},
+      valid_code = #{validCode,jdbcType=VARCHAR},
+      valid_date_end = #{validDateEnd,jdbcType=DATE},
+      status = #{status,jdbcType=INTEGER},
+      accept_user_id = #{acceptUserId,jdbcType=INTEGER},
+      accept_user_name = #{acceptUserName,jdbcType=VARCHAR},
+      accept_time = #{acceptTime,jdbcType=TIMESTAMP},
+      industry_require = #{industryRequire,jdbcType=LONGVARCHAR},
+      address_require = #{addressRequire,jdbcType=LONGVARCHAR},
+      reg_capital_require = #{regCapitalRequire,jdbcType=LONGVARCHAR}
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.allen.pojo.CompanyTransaction">
+    update t_company_transaction
+    set trans_type = #{transType,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR},
+      license_image = #{licenseImage,jdbcType=VARCHAR},
+      debt = #{debt,jdbcType=INTEGER},
+      finance_status = #{financeStatus,jdbcType=INTEGER},
+      permit = #{permit,jdbcType=INTEGER},
+      permit_image = #{permitImage,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=VARCHAR},
+      bargain = #{bargain,jdbcType=INTEGER},
+      reg_duration = #{regDuration,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL},
+      valid_code = #{validCode,jdbcType=VARCHAR},
+      valid_date_end = #{validDateEnd,jdbcType=DATE},
+      status = #{status,jdbcType=INTEGER},
+      accept_user_id = #{acceptUserId,jdbcType=INTEGER},
+      accept_user_name = #{acceptUserName,jdbcType=VARCHAR},
+      accept_time = #{acceptTime,jdbcType=TIMESTAMP}
+    where trans_id = #{transId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,16 @@
+.header .address li i,.header .social li:hover a,.header .social li:first-child a i,.header .cart-search-bar li:hover a,.header .side-menu .nav li:hover a,.header .nav li:hover a,
+.header .nav li.current a,.header .nav .dropdown li:hover a,.features .single-features i,.project .project-hover h4:hover a,.newsblog .news-content h4:hover a,.newsblog .news-content .btn,.newsblog .category ul li:hover a,.newsblog .single-comments a,.newsblog .blog-comments .login a:hover,.sufia-personal .personal-text p span,.my-timeline .single-timeline h2 span,.supia-app-main .app-text h1 .typed-cursor,.newsblog .latest .post-info p,.footer .social-icon li a:hover {
+	color: #F2784B;
+}
+.section-title h2::before,.button .btn:hover,.button .btn.primary,.header .cart-search-bar .cart-item,.header .search-form input[type="submit"],.header .nav li a::before,.breadcrumbs ul li.active a,.header .slicknav_nav a:hover,.breadcrumbs h2:before,.breadcrumbs h2:after,.sufia-slider button:hover,.count-down .count::before,.sufia-slider .welcome-text .button .btn.primary,.sufia-slider .welcome-text .button .btn:hover,.project .project-nav ul li::before,.project .project-hover h4:before,.project.single .project-slide button:hover,.project.single .project-descreption h2:before,.project.single .project-related h4:before,.team .team-head:before,.newsblog .single-news .link:hover,.newslatter input[type="submit"],.newsblog.single .pagination li:hover a,.newsblog.single .pagination li.active a,.newsblog.single .news-slide button:hover,.newsblog .form .search input[type="submit"],.newsblog .single-sidebar h2:before,.newsblog .call-to-action .call-inner,.newsblog .tags ul li a:hover,.newsblog .news-share ul li:hover a,.sufia-personal .personal-text .info li::before,.sufia-personal .personal-text .button .btn:hover,.sufia-personal .personal-text .button .btn.primary,.about-me .social li:hover a,.about-me .progress-bar .prog-bg,
+.about-me .social li.active a,.about-me .my-image i,.about-me .about-text h3:before,.about-me .single-skill .progress-bar,.supia-app-main .app-text .button .btn:hover,.supia-app-main .app-text .button .btn.primary,.app-features .app-single-features i,.app-screnshoot button.PrevArrow:hover,
+.app-screnshoot button.NextArrow:hover,.sufia-video-area .video-text .btn:hover,.sufia-video-area .video-text .btn.primary,.footer .social li:hover a,
+.footer .social li.active a,.newsblog .blog-comments h2::before,#scrollUp,.k-line,.project.single .project-related .slick-dots li.slick-active button,.newsblog .call-inner .btn:hover,#contact .form-group .button {
+	background: #F2784B;
+}
+.about-me img{
+	border-left-color:#F2784B;
+}
+.app-screnshoot button{
+	background: rgba(242, 120, 75, 0.40);
+}

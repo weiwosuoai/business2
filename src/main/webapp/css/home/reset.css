@@ -1,0 +1,423 @@
+/* =====================================
+Template Name: Sufia
+Author Name: Shakil Hossain
+Author URL: http://codeglim.com
+Description: Sufia is a Multipurpose Corporate,Business,Personal,App Template. it's perfect on any business,peronal,app showcase website. you can easily customize and change it. thank you
+Version: 1.1
+========================================*/  
+
+/*============================
+ Reset CSS
+===============================*/ 
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+	height: 100%;
+	margin: 0;
+}
+body {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #363636;
+	line-height:25px;
+	position:relative;
+}
+h1,h2,h3,h4,h5,h6{
+	margin:0;
+	font-family: 'Work Sans', sans-serif;
+	font-weight:500;
+}
+p {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+a,button{
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	font-weight:500;
+}
+button,a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+	display:block;
+}
+select:focus,
+select:active {
+    box-shadow: 0;
+    border: 0;
+    outline: 0
+}
+.table {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+.table-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+.nav > li > a:focus,
+.nav > li > a:hover {
+    background-color: transparent;
+    text-decoration: none;
+}
+.navbar {
+    margin-bottom: 0;
+    border: 0;
+}
+.section{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.section-title {
+   margin-bottom:30px;
+   text-align:center;
+}
+.section-title h2 {
+    font-size: 36px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    position: relative;
+	text-transform:capitalize;
+    color: #363636
+}
+.section-title h2::before {
+	position: absolute;
+	width: 50px;
+	height: 2px;
+	content: "";
+	left: 50%;
+	margin-left: -25px;
+	bottom: -1px;
+}
+.section-title p {
+	color: #888;
+	padding: 0 190px;
+	font-size: 15px;
+}
+.button .btn{
+	font-size:15px;
+	color:#9B9B9B;
+	padding:20px 40px;
+	text-transform:uppercase;
+	border:1px solid #E0E0E0;
+	display: inline-block;
+	text-align:center;
+	font-weight:500;
+	font-family: 'Work Sans', sans-serif;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+.button .btn:hover{
+	border-color:transparent;
+	color:#fff;
+	
+}
+.button .btn.primary{
+	color:#fff;
+	border-color:transparent;
+}
+img{
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+input,
+input:focus,
+input:active {
+    outline: none;
+	font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+}
+select{
+    -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
+}
+textarea:focus {
+    outline: none !important;
+    box-shadow: none !important
+}
+
+
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+
+/*Remove bootstrap tab css*/
+.nav-tabs > li > a {
+    border: 0
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    border: 0;
+    outline: 0
+}
+
+.nav-tabs {
+    border: 0
+}
+
+.nav-tabs > li > a:hover {
+    border: 0
+}
+
+/*navbar css icon*/
+.navbar-toggle .icon-bar {
+    position: relative;
+    -webkit-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+    width: 28px;
+}
+.slick-slide {
+    outline: none !important;
+}
+/*bootstrap form*/
+.form-control:focus {
+	border-color: #ccc;
+	box-shadow: 0 0 0 ;
+	outline: 0 none;
+}
+#scrollUp {
+	right: 24px;
+	bottom: 12px;
+	color: #fff;
+	font-size: 30px;
+	opacity: 0.8;
+	padding: 4px 10px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#scrollUp:hover {
+	opacity:1;
+}
+#scrollUp i {
+	transform: scale(1.2);
+	transform: rotate(-45deg);
+}
+.loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: #fff;
+	z-index: 4444;
+}
+.loader-inner{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-40px;
+}
+.loader-inner p{
+	font-size:16px;
+	font-weight:500;
+	color:#555;
+	margin-top:5px;
+	text-transform:capitalize;
+	margin-left:-5px;
+}
+.k-loader {
+    display: inline-block;
+    font-size: 2em;
+    margin: 0 .5em;
+    position: relative;
+    height: .5em;
+    width: 1em
+}
+
+.k-loader:before,
+.k-loader:after {
+    content: "";
+    display: block;
+    height: .5em;
+    position: absolute;
+    width: .5em
+}
+
+.k-loader:before {
+    animation: k-loadingK 2s ease-in-out infinite, k-loadingM .66s ease-in-out infinite;
+    background: #444
+}
+
+.k-loader:after {
+    animation: k-loadingL 2s ease-in-out infinite, k-loadingN .66s ease-in-out infinite;
+    background: #2cb0b2
+}
+
+.k-circle:before,
+.k-circle:after {
+    border-radius: 50%
+}
+
+.k-circle-before:before {
+    border-radius: 50%
+}
+
+.k-circle-after:after {
+    border-radius: 50%
+}
+@keyframes k-loadingK {
+    0% {
+        left: 0;
+        transform: scale(1.1)
+    }
+    50% {
+        left: 100%;
+        transform: scale(1)
+    }
+    100% {
+        left: 0;
+        transform: scale(1.1)
+    }
+}
+
+@keyframes k-loadingL {
+    0% {
+        left: 100%;
+        transform: scale(1.1)
+    }
+    50% {
+        left: 0;
+        transform: scale(1)
+    }
+    100% {
+        left: 100%;
+        transform: scale(1.1)
+    }
+}
+
+@keyframes k-loadingM {
+    0% {
+        z-index: 0
+    }
+    50% {
+        z-index: 1
+    }
+    100% {
+        z-index: 0
+    }
+}
+
+@keyframes k-loadingN {
+    0% {
+        z-index: 1
+    }
+    50% {
+        z-index: 0
+    }
+    100% {
+        z-index: 1
+    }
+}
+
+/*MP Color*/  
+.mp-color {
+	position: fixed;
+	display: block;
+	z-index: 99;
+	text-align: center;
+	padding: 50px 5px;
+	width: 200px;
+	min-height: 200px;
+	top: 47%;
+	background: #fff;
+	box-shadow: -3px 0px 50px -2px rgba(0,0,0,0.14);
+	margin-top: -150px;
+	border-bottom: 6px solid #ddd;
+	left: -200px;
+}
+.mp-color .icon {
+	width: 25px;
+	height: 25px;
+	background: #968A8C;
+	margin-top: -13.5px;
+	border-radius: 0px;
+	top: 50%;
+	line-height: 25px;
+	cursor: pinter;
+	font-size: 16px;
+	position: absolute;
+	bottom: -24px;
+	right: -50px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 32px;
+	border-radius: 0 5px 5px 0px;
+	background: #fff;
+	color: #444;
+}
+.mp-color .icon i {
+	color: #444;
+	cursor: pointer;
+}
+.mp-color h4 {
+	display: block;
+	text-transform: uppercase;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+.mp-color ul {
+	margin-bottom: 20px;
+}
+.mp-color ul li{
+	font-weight:500;
+	font-size:14px;
+}
+.mp-color ul li a{
+	color:#555;
+}
+.mp-color .button {
+	margin:20px 0 0;
+}
+.mp-color .button i{
+	color:#fff;
+	margin-right:5px;
+}
+.mp-color .btn {
+	padding: 12px 25px;
+}
+.mp-color span {
+	margin: 0 5px;
+	width: 30px;
+	height: 25px;
+	border-radius: 0;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 10px;
+}
+.mp-color span.color1{background-color:#29B6F6}
+.mp-color span.color2{background-color:#82B440}
+.mp-color span.color3{background-color:#3498db;}
+.mp-color span.color4{background-color:#16A085;}
+.mp-color span.color5{background-color:#F2784B;}
+.mp-color span.color6{background-color:#D2527F;}
+.mp-color span.color7{background-color:#BF55EC;}
+.mp-color span.color8{background-color:#e74c3c;}

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.allen.dao.ProductDescriptionMapper" >
+  <resultMap id="BaseResultMap" type="com.allen.pojo.ProductDescription" >
+    <id column="desc_Id" property="descId" jdbcType="INTEGER" />
+    <result column="product_Id" property="productId" jdbcType="INTEGER" />
+    <result column="desc_name" property="descName" jdbcType="VARCHAR" />
+    <result column="flow_Image" property="flowImage" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.allen.pojo.ProductDescriptionWithBLOBs" extends="BaseResultMap" >
+    <result column="need_Papers" property="needPapers" jdbcType="LONGVARCHAR" />
+    <result column="product_Desc" property="productDesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    desc_Id, product_Id, desc_name, flow_Image, remark
+  </sql>
+  <sql id="Blob_Column_List" >
+    need_Papers, product_Desc
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.allen.pojo.ProductDescriptionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_product_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.allen.pojo.ProductDescriptionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_product_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_product_description
+    where desc_Id = #{descId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_product_description
+    where desc_Id = #{descId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.allen.pojo.ProductDescriptionExample" >
+    delete from t_product_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.allen.pojo.ProductDescriptionWithBLOBs" >
+    insert into t_product_description (desc_Id, product_Id, desc_name, 
+      flow_Image, remark, need_Papers, 
+      product_Desc)
+    values (#{descId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{descName,jdbcType=VARCHAR}, 
+      #{flowImage,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{needPapers,jdbcType=LONGVARCHAR}, 
+      #{productDesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.allen.pojo.ProductDescriptionWithBLOBs" >
+    insert into t_product_description
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="descId != null" >
+        desc_Id,
+      </if>
+      <if test="productId != null" >
+        product_Id,
+      </if>
+      <if test="descName != null" >
+        desc_name,
+      </if>
+      <if test="flowImage != null" >
+        flow_Image,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="needPapers != null" >
+        need_Papers,
+      </if>
+      <if test="productDesc != null" >
+        product_Desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="descId != null" >
+        #{descId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="descName != null" >
+        #{descName,jdbcType=VARCHAR},
+      </if>
+      <if test="flowImage != null" >
+        #{flowImage,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="needPapers != null" >
+        #{needPapers,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productDesc != null" >
+        #{productDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.allen.pojo.ProductDescriptionExample" resultType="java.lang.Integer" >
+    select count(*) from t_product_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_product_description
+    <set >
+      <if test="record.descId != null" >
+        desc_Id = #{record.descId,jdbcType=INTEGER},
+      </if>
+      <if test="record.productId != null" >
+        product_Id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.descName != null" >
+        desc_name = #{record.descName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flowImage != null" >
+        flow_Image = #{record.flowImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.needPapers != null" >
+        need_Papers = #{record.needPapers,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.productDesc != null" >
+        product_Desc = #{record.productDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_product_description
+    set desc_Id = #{record.descId,jdbcType=INTEGER},
+      product_Id = #{record.productId,jdbcType=INTEGER},
+      desc_name = #{record.descName,jdbcType=VARCHAR},
+      flow_Image = #{record.flowImage,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      need_Papers = #{record.needPapers,jdbcType=LONGVARCHAR},
+      product_Desc = #{record.productDesc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_product_description
+    set desc_Id = #{record.descId,jdbcType=INTEGER},
+      product_Id = #{record.productId,jdbcType=INTEGER},
+      desc_name = #{record.descName,jdbcType=VARCHAR},
+      flow_Image = #{record.flowImage,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.allen.pojo.ProductDescriptionWithBLOBs" >
+    update t_product_description
+    <set >
+      <if test="productId != null" >
+        product_Id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="descName != null" >
+        desc_name = #{descName,jdbcType=VARCHAR},
+      </if>
+      <if test="flowImage != null" >
+        flow_Image = #{flowImage,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="needPapers != null" >
+        need_Papers = #{needPapers,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productDesc != null" >
+        product_Desc = #{productDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where desc_Id = #{descId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.allen.pojo.ProductDescriptionWithBLOBs" >
+    update t_product_description
+    set product_Id = #{productId,jdbcType=INTEGER},
+      desc_name = #{descName,jdbcType=VARCHAR},
+      flow_Image = #{flowImage,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      need_Papers = #{needPapers,jdbcType=LONGVARCHAR},
+      product_Desc = #{productDesc,jdbcType=LONGVARCHAR}
+    where desc_Id = #{descId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.allen.pojo.ProductDescription" >
+    update t_product_description
+    set product_Id = #{productId,jdbcType=INTEGER},
+      desc_name = #{descName,jdbcType=VARCHAR},
+      flow_Image = #{flowImage,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where desc_Id = #{descId,jdbcType=INTEGER}
+  </update>
+</mapper>
